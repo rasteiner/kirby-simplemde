@@ -8,7 +8,7 @@ This is a textarea with Markdown highlighting using [SimpleMDE](https://github.c
 
 Put the `kirby-simplemde-master` folder into your `site/fields` folder and rename it to `simplemde`.
 
-You can then replace your `textarea` fields to `simplemde` like that:
+You can then replace your `textarea` fields with `simplemde` like that:
 
 
 ```
@@ -21,12 +21,12 @@ text:
 
 Compared to the built-in textarea, this field has some advantages:
 
-- Live Markdown highlighting
-- Undo/redo
+- Live Markdown highlighting. Including green Kirbytags.
+- Undo/redo via `Ctrl`/`⌘` + `Z`/`Y`.
 - No modals for URLs and email addresses as this prevents the buttons from showing in structure fields.
 - Automatic link/email detection when selecting text and using the `link` or `email` button.
 - Easy to add custom buttons
-- Sticky toolbar for better reachability
+- Sticky toolbar on the top for better reachability
 
 ## Options
 
