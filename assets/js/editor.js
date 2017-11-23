@@ -125,8 +125,7 @@
     			}
     		}
       });
-        	    	
-    	
+          	
       var simplemde = new SimpleMDE({
       	element: $(this)[0],
       	spellChecker: false,
@@ -146,7 +145,7 @@
       // Check for tabs plugin
       if ($(".tab-placeholder").length || $(".tab-container").length) {
         field.addClass("tabs-helper");
-      }
+      }           
             
     });
 

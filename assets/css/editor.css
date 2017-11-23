@@ -38,6 +38,9 @@
   border: 2px solid #ddd; }
   .field-with-simplemde .CodeMirror.CodeMirror-focused {
     border-color: #8dae28; }
+  .field-with-simplemde .CodeMirror .CodeMirror-code .cm-kirbytag {
+    background: rgba(141, 174, 40, 0.2);
+    border-radius: 2px; }
 
 @media screen and (max-width: 50em) {
   .field-with-simplemde .editor-toolbar {

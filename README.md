@@ -59,8 +59,8 @@ There are still some features missing.
 
 - [x] Keep changes on reload/navigation 
 - [ ] Drag and drop from the sidebar
-- [ ] Adequate sticky toolbar for mobile devices
+- [x] Adequate sticky toolbar for mobile devices
 - [ ] The page link functionality used in the [Kirby Enhanced Textarea](https://github.com/medienbaecker/kirby-enhanced-textarea)
-- [ ] Kirbytag highlighting (and maybe autocomplete)
+- [x] Kirbytag highlighting
 - [ ] More built-in buttons
 - [ ] Better horizontal overflow with many buttons
