@@ -1,0 +1,51 @@
+.field-with-simplemde {
+    
+  .editor-toolbar {
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid #EFEFEF;
+    background: white;
+    opacity: 1;
+    border-radius: 0;
+    margin-left: 2px;
+    margin-right: 2px;
+    
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+        
+    &:before, &:after {
+      display: none;
+    }
+    
+    a {
+      color: rgb(119, 119, 119) !important;
+      border: none;
+      border-radius: 0;
+      font-size: 14px;
+      &:hover {
+        background: none;
+        border: none;
+        color: black !important;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  &.tabs-helper .editor-toolbar {
+    top: 63px;
+  }
+  
+  .CodeMirror {
+    border-radius: 0;
+    border: none;
+    padding-top: 43px;
+    margin-top: -33px;
+    border: 2px solid #ddd;
+    &.CodeMirror-focused {
+      border-color: #8dae28;
+    }
+  }
+  
+}
