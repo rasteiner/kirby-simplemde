@@ -41,6 +41,12 @@ By default the following buttons are displayed:
 - `link`
 - `email`
 
+There are also some more built-in buttons:
+
+- `heading-1`
+- `quote`
+- `horizontal-rule`
+
 You can define what buttons you want to use for any field:
 
 ```
@@ -48,7 +54,7 @@ text:
   label: Text
   type:  simplemde
   buttons:
-    - bold
+    - heading-1
     - italic
     - link
 ```
