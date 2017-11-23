@@ -62,5 +62,5 @@ There are still some features missing.
 - [x] Adequate sticky toolbar for mobile devices
 - [ ] The page link functionality used in the [Kirby Enhanced Textarea](https://github.com/medienbaecker/kirby-enhanced-textarea)
 - [x] Kirbytag highlighting
-- [ ] More built-in buttons
+- [x] More built-in buttons
 - [ ] Better horizontal overflow with many buttons
