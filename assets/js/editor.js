@@ -67,6 +67,18 @@
     			title: "Ordered List",
     		},
     		{
+    			name: "quote",
+    			action: SimpleMDE.toggleBlockquote,
+    			className: "fa fa-quote-left",
+    			title: "Quote",
+    		},
+    		{
+    			name: "horizontal-rule",
+    			action: SimpleMDE.drawHorizontalRule,
+    			className: "fa fa-minus",
+    			title: "Horizontal Line",
+    		},
+    		{
     			name: "link",
     			action: function linkFunction(){
     				var cm = simplemde.codemirror;
@@ -98,12 +110,19 @@
     				var selection = cm.getSelection();
     		    var text = '';
     		    var email = '';
-    		    if (selection.match("@")) {
-    		      email = selection;
-    		    } else {
-    		      text = selection;
+    		    
+    		    if (selection) {
+    		      if (selection.match("@")) {
+    		        email = selection;
+    		      } else {
+    		        text = selection;
+    		      }
+    		      var replacement = '(email: ' + email + ' text: ' + text + ')';
     		    }
-    		    var replacement = '(email: ' + email + ' text: ' + text + ')';
+    		    else {
+    		      var replacement = '(email: )';
+    		    }
+    		    
     		    cm.replaceSelection(replacement);
     		    var cursorPos = cm.getCursor();
     		    if (email) {
