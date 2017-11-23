@@ -69,4 +69,4 @@ There are still some features missing.
 - [ ] The page link functionality used in the [Kirby Enhanced Textarea](https://github.com/medienbaecker/kirby-enhanced-textarea)
 - [x] Kirbytag highlighting
 - [x] More built-in buttons
-- [ ] Better horizontal overflow with many buttons
+- [X] Better horizontal overflow with many buttons

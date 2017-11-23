@@ -16657,6 +16657,11 @@ SimpleMDE.prototype.createToolbar = function(items) {
 
 	var bar = document.createElement("div");
 	bar.className = "editor-toolbar";
+	
+	var barInner = document.createElement("div");
+	barInner.className = "editor-toolbar-inner";
+	
+	bar.appendChild(barInner);
 
 	var self = this;
 
@@ -16714,7 +16719,7 @@ SimpleMDE.prototype.createToolbar = function(items) {
 			}
 
 			toolbarData[item.name || item] = el;
-			bar.appendChild(el);
+			barInner.appendChild(el);
 		})(items[i]);
 	}
 

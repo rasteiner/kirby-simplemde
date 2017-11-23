@@ -1,6 +1,7 @@
 .field-with-simplemde {
     
   .editor-toolbar {
+    padding: 0;
     text-align: center;
     border: none;
     border-bottom: 1px solid #EFEFEF;
@@ -13,7 +14,13 @@
     position: sticky;
     top: 0px;
     z-index: 10;
-        
+    
+    .editor-toolbar-inner {
+      white-space: nowrap;
+      max-width: calc(100vw - 3em);
+      overflow: auto;
+    }
+    
     &:before, &:after {
       display: none;
     }
