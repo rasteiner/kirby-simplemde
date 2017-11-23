@@ -25,6 +25,12 @@
     	
     	var toolbarItems = [
     		{
+    			name: "heading-1",
+    			action: SimpleMDE.toggleHeading1,
+    			className: "fa fa-header fa-header-x fa-header-1",
+    			title: "Heading 1",
+    		},
+    		{
     			name: "heading-2",
     			action: SimpleMDE.toggleHeading2,
     			className: "fa fa-header fa-header-x fa-header-2",

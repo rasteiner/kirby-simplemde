@@ -23,6 +23,9 @@
       color: black !important; }
     .field-with-simplemde .editor-toolbar a:focus {
       outline: none; }
+    .field-with-simplemde .editor-toolbar a.fa-header-1:after, .field-with-simplemde .editor-toolbar a.fa-header-2:after, .field-with-simplemde .editor-toolbar a.fa-header-3:after {
+      font-size: 11px;
+      top: 1px; }
 
 .field-with-simplemde.tabs-helper .editor-toolbar {
   top: 63px; }
@@ -35,3 +38,10 @@
   border: 2px solid #ddd; }
   .field-with-simplemde .CodeMirror.CodeMirror-focused {
     border-color: #8dae28; }
+
+@media screen and (max-width: 50em) {
+  .field-with-simplemde .editor-toolbar {
+    position: relative;
+    top: auto; }
+  .field-with-simplemde.tabs-helper .editor-toolbar {
+    top: auto; } }

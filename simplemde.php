@@ -31,12 +31,9 @@ class SimplemdeField extends TextField {
   }
 
   public function element() {
-
     $element = parent::element();
     $element->addClass('field-with-simplemde');
-
     return $element;
-
   }
 
 }

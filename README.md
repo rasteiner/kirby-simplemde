@@ -26,6 +26,7 @@ Compared to the built-in textarea, this field has some advantages:
 - No modals for URLs and email addresses as this prevents the buttons from showing in structure fields.
 - Automatic link/email detection when selecting text and using the `link` or `email` button.
 - Easy to add custom buttons
+- Sticky toolbar for better reachability
 
 ## Options
 
@@ -62,3 +63,4 @@ There are still some features missing.
 - [ ] The page link functionality used in the [Kirby Enhanced Textarea](https://github.com/medienbaecker/kirby-enhanced-textarea)
 - [ ] Kirbytag highlighting (and maybe autocomplete)
 - [ ] More built-in buttons
+- [ ] Better horizontal overflow with many buttons

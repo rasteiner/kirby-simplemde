@@ -31,6 +31,12 @@
       &:focus {
         outline: none;
       }
+      &.fa-header-1, &.fa-header-2, &.fa-header-3 {
+        &:after {
+          font-size: 11px;
+          top: 1px;
+        }
+      }
     }
   }
   &.tabs-helper .editor-toolbar {
@@ -48,4 +54,16 @@
     }
   }
   
+}
+
+@media screen and (max-width: 50em) {
+	.field-with-simplemde {
+	  .editor-toolbar {
+	  	position: relative;
+	  	top: auto;
+	  }
+	  &.tabs-helper .editor-toolbar {
+	    top: auto;
+	  }
+	}
 }
