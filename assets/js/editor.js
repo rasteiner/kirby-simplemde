@@ -4,9 +4,9 @@
 
     return this.each(function() {
     	
-    	var textarea = $(this);
-    	var field = textarea.closest(".field")
-    	var modalUrl = textarea.data("modal_url");
+    	var simplemde = $(this);
+    	var field = simplemde.closest(".field")
+    	var modalUrl = simplemde.data("modal_url");
     	
     	var buttons = [
     	  "heading-2",
@@ -19,8 +19,8 @@
     	  "email"
     	];
     	
-    	if (textarea.data("buttons")) {
-    	  buttons = textarea.data("buttons").split(" ");
+    	if (simplemde.data("buttons")) {
+    	  buttons = simplemde.data("buttons").split(" ");
     	}
     	
     	var toolbarItems = [
@@ -130,6 +130,11 @@
     		},
     		forceSync: true,
     		toolbar: toolbarItems,
+      });
+      
+      // Keep changes
+      simplemde.codemirror.on("change", function() {
+      	field.closest('form').trigger('keep');
       });
       
       // Check for tabs plugin

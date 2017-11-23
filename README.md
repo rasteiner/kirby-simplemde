@@ -1,6 +1,6 @@
 # SimpleMDE for Kirby <a href="https://www.paypal.me/medienbaecker"><img width="99" src="http://www.medienbaecker.com/beer.png" alt="Buy me a beer" align="right"></a>
 
-This is a textarea with Markdown highlighting using [SimpleMDE](https://github.com/sparksuite/simplemde-markdown-editor) for [Kirby](https://github.com/getkirby).
+This is a textarea with Markdown highlighting using [SimpleMDE](https://github.com/sparksuite/simplemde-markdown-editor).
 
 ![Preview](https://user-images.githubusercontent.com/7975568/33186314-de426910-d088-11e7-914a-10e874fd0cef.gif)
 
@@ -58,7 +58,6 @@ There are still some features missing.
 
 - Drag and drop from the sidebar
 - Adequate sticky toolbar for mobile devices
-- Caching of entered value on reload/navigation
 - The page link functionality used in the [Kirby Enhanced Textarea](https://github.com/medienbaecker/kirby-enhanced-textarea)
 - Kirbytag highlighting (and maybe autocomplete)
 - More built-in buttons
