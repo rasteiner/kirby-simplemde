@@ -64,7 +64,7 @@ text:
 There are still some features missing.
 
 - [x] Keep changes on reload/navigation 
-- [ ] Drag and drop from the sidebar
+- [X] Drag and drop from the sidebar
 - [x] Adequate sticky toolbar for mobile devices
 - [ ] The page link functionality used in the [Kirby Enhanced Textarea](https://github.com/medienbaecker/kirby-enhanced-textarea)
 - [x] Kirbytag highlighting

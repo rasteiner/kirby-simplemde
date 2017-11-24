@@ -156,6 +156,30 @@
     		toolbar: toolbarItems,
       });
       
+      
+      
+      // Drag and Drop
+      field.find('.CodeMirror').droppable({
+        hoverClass: 'CodeMirror-over',
+        accept: $('.sidebar .draggable'),
+        drop: function(e, ui) {
+          editor = simplemde.codemirror;
+          var selection = editor.getSelection();
+          if(selection.length>0){
+              editor.replaceSelection(ui.draggable.data('text'));
+          }
+          else{
+              var doc = editor.getDoc();
+              var cursor = doc.getCursor();
+              var pos = {
+                line: cursor.line,
+                ch: cursor.ch
+              }
+              doc.replaceRange(ui.draggable.data('text'), pos);
+          }
+        }
+      });
+            
       // Keep changes
       simplemde.codemirror.on("change", function() {
       	field.closest('form').trigger('keep');

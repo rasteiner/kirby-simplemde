@@ -59,6 +59,9 @@
     &.CodeMirror-focused {
       border-color: #8dae28;
     }
+    &.CodeMirror-over {
+      border-color: black;
+    }
     .CodeMirror-code .cm-kirbytag {
       background: rgba(#8dae28,.2);
       border-radius: 2px;
