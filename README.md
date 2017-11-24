@@ -58,15 +58,3 @@ text:
     - italic
     - link
 ```
-
-## Roadmap
-
-There are still some features missing.
-
-- [x] Keep changes on reload/navigation 
-- [X] Drag and drop from the sidebar
-- [x] Adequate sticky toolbar for mobile devices
-- [ ] The page link functionality used in the [Kirby Enhanced Textarea](https://github.com/medienbaecker/kirby-enhanced-textarea)
-- [x] Kirbytag highlighting
-- [x] More built-in buttons
-- [X] Better horizontal overflow with many buttons
