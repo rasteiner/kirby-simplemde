@@ -9,8 +9,8 @@
     	var modalUrl = simplemde.data("modal_url");
     	
     	var buttons = [
-    	  "heading-2",
-    	  "heading-3",
+    	  "h2",
+    	  "h3",
     	  "bold",
     	  "italic",
     	  "unordered-list",
@@ -25,19 +25,19 @@
     	
     	var toolbarItems = [
     		{
-    			name: "heading-1",
+    			name: "h1",
     			action: SimpleMDE.toggleHeading1,
     			className: "fa fa-header fa-header-x fa-header-1",
     			title: "Heading 1",
     		},
     		{
-    			name: "heading-2",
+    			name: "h2",
     			action: SimpleMDE.toggleHeading2,
     			className: "fa fa-header fa-header-x fa-header-2",
     			title: "Heading 2",
     		},
     		{
-    			name: "heading-3",
+    			name: "h3",
     			action: SimpleMDE.toggleHeading3,
     			className: "fa fa-header fa-header-x fa-header-3",
     			title: "Heading 3",
@@ -163,7 +163,7 @@
         hoverClass: 'CodeMirror-over',
         accept: $('.sidebar .draggable'),
         drop: function(e, ui) {
-          editor = simplemde.codemirror;
+          var editor = simplemde.codemirror;
           var selection = editor.getSelection();
           if(selection.length>0){
               editor.replaceSelection(ui.draggable.data('text'));

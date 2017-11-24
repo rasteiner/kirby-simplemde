@@ -32,8 +32,8 @@ Compared to the built-in textarea, this field has some advantages:
 
 By default the following buttons are displayed:
 
-- `heading-2`
-- `heading-3`
+- `h2`
+- `h3`
 - `bold`
 - `italic`
 - `unordered-list`
@@ -43,7 +43,7 @@ By default the following buttons are displayed:
 
 There are also some more built-in buttons:
 
-- `heading-1`
+- `h1`
 - `quote`
 - `horizontal-rule`
 
@@ -54,7 +54,7 @@ text:
   label: Text
   type:  simplemde
   buttons:
-    - heading-1
+    - h1
     - italic
     - link
 ```
