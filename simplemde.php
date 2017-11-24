@@ -33,6 +33,9 @@ class SimplemdeField extends TextField {
   public function element() {
     $element = parent::element();
     $element->addClass('field-with-simplemde');
+    if (c::get('simplemde.kirbytagHighlighting', true)) {
+      $element->addClass('kirbytag-highlighting');
+    }
     return $element;
   }
 

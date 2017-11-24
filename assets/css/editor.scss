@@ -62,15 +62,17 @@
     &.CodeMirror-over {
       border-color: black;
     }
-    .CodeMirror-code .cm-kirbytag {
-      background: rgba(#8dae28,.2);
-      border-radius: 2px;
-    }
     .cm-formatting {
       opacity: .5;
     }
   }
   
+  &.kirbytag-highlighting {
+    .cm-kirbytag {
+      background: rgba(#8dae28,.2);
+      border-radius: 2px;
+    }
+  }
 }
 
 @media screen and (max-height: 700px) , screen and (max-width: 50em) {

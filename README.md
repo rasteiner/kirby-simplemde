@@ -58,3 +58,9 @@ text:
     - italic
     - link
 ```
+
+If you don't want to highlight Kirbytags you can add this to your `config.php`:
+
+```
+c::set('simplemde.kirbytagHighlighting', false);
+```
