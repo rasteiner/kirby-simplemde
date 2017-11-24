@@ -48,6 +48,8 @@
   .field-with-simplemde .CodeMirror .CodeMirror-code .cm-kirbytag {
     background: rgba(141, 174, 40, 0.2);
     border-radius: 2px; }
+  .field-with-simplemde .CodeMirror .cm-formatting {
+    opacity: .5; }
 
 @media screen and (max-height: 700px), screen and (max-width: 50em) {
   .field-with-simplemde .editor-toolbar {
