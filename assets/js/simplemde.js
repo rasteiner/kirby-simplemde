@@ -11328,7 +11328,7 @@ CodeMirror.defineMode("gfm", function(config, modeConfig) {
           }
         }
       }
-      if (stream.match(/\((.*\:)([^\)]+)\)/)) {
+      if (stream.match(/\(([\w]+[\:])([^\)]+)\)/)) {
         state.combineTokens = true;
         return "kirbytag";
       }
