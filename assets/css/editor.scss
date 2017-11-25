@@ -2,9 +2,19 @@
     
   .field-content {
     border: 2px solid #ddd;
-    &.focused, &:focus-within { 
+    &:focus-within { 
       border-color: #8dae28;
     }
+  }
+  &.field-is-readonly {
+    .field-content:focus-within { 
+      border-color: #ddd;
+    }
+  }
+  
+  textarea {
+    border: none;
+    min-height: 300px;
   }
   
   .editor-toolbar {
@@ -101,13 +111,8 @@
             line-height: 45px;
             display: block;
             overflow: hidden;
-            &:hover {
+            &:hover, &.selected {
               cursor: pointer;
-              .title {
-                color: #8dae28;
-              }
-            }
-            &.selected {
               background: #f7f7f7;
             }
             

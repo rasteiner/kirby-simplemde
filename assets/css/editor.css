@@ -1,7 +1,14 @@
 .field-with-simplemde .field-content {
   border: 2px solid #ddd; }
-  .field-with-simplemde .field-content.focused, .field-with-simplemde .field-content:focus-within {
+  .field-with-simplemde .field-content:focus-within {
     border-color: #8dae28; }
+
+.field-with-simplemde.field-is-readonly .field-content:focus-within {
+  border-color: #ddd; }
+
+.field-with-simplemde textarea {
+  border: none;
+  min-height: 300px; }
 
 .field-with-simplemde .editor-toolbar {
   padding: 0;
@@ -76,11 +83,8 @@
         line-height: 45px;
         display: block;
         overflow: hidden; }
-        .field-with-simplemde .editor-toolbar .easy-autocomplete-container ul li:hover {
-          cursor: pointer; }
-          .field-with-simplemde .editor-toolbar .easy-autocomplete-container ul li:hover .title {
-            color: #8dae28; }
-        .field-with-simplemde .editor-toolbar .easy-autocomplete-container ul li.selected {
+        .field-with-simplemde .editor-toolbar .easy-autocomplete-container ul li:hover, .field-with-simplemde .editor-toolbar .easy-autocomplete-container ul li.selected {
+          cursor: pointer;
           background: #f7f7f7; }
         .field-with-simplemde .editor-toolbar .easy-autocomplete-container ul li .uri {
           opacity: .5; }

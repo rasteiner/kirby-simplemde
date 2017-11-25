@@ -40,6 +40,7 @@ By default the following buttons are displayed:
 - `ordered-list`
 - `link`
 - `email`
+- `pagelink`
 
 There are also some more built-in buttons:
 

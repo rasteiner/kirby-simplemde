@@ -5,6 +5,13 @@
     return this.each(function() {
     	
     	var simplemde = $(this);
+    	
+    	// Abort mission when field is readonly
+    	if (simplemde.attr("readonly")) {
+    		simplemde.autosize();
+    		return;
+    	}
+    	    	
     	var field = simplemde.closest(".field")
     	var indexUrl = simplemde.data("index");
     	
@@ -193,16 +200,17 @@
     			}
     		}
       });
-          	
+      
+      
       var simplemde = new SimpleMDE({
       	element: $(this)[0],
       	spellChecker: false,
       	status: false,
       	parsingConfig: {
-    			allowAtxHeaderWithoutSpace: true
-    		},
-    		forceSync: true,
-    		toolbar: toolbarItems,
+      		allowAtxHeaderWithoutSpace: true
+      	},
+      	forceSync: true,
+      	toolbar: toolbarItems,
       });
       
       // Drag and Drop
@@ -226,15 +234,7 @@
           }
         }
       });
-      
-      // Focus
-      simplemde.codemirror.on("focus", function() {
-      	field.find('.field-content').addClass("focused");
-      });
-      simplemde.codemirror.on("blur", function() {
-      	field.find('.field-content').removeClass("focused");
-      });
-            
+                  
       // Keep changes
       simplemde.codemirror.on("change", function() {
       	field.closest('form').trigger('keep');
@@ -244,6 +244,8 @@
       if ($(".tab-placeholder").length || $(".tab-container").length) {
         field.addClass("tabs-helper");
       }
+      
+      simplemde.codemirror.setOption("readonly", "true");
             
     });
 
