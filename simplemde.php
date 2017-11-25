@@ -20,7 +20,7 @@ class SimplemdeField extends TextField {
       $pageList[] = array(
         'uri'      => (string)$p->uri(),
         'title'    => (string)$p->title(),
-        'search'   => (string)$p->title() . " " . (string)$p->uri()
+        'search'   => (string)$p->title() . " (" . (string)$p->uri() . ")"
       );
     }
     return $pageList;
