@@ -114,9 +114,16 @@
     		{
     			name: "pagelink",
     			action: function pagelinkFunction() {    				
-    				field.find(".editor-toolbar").addClass("pagelink-open");
-    				var input = $('<input type="text" class="pagesearch">');
-    				field.find(".editor-toolbar").append(input);
+    				field.find(".editor-toolbar").toggleClass("pagelink-open");
+    				if (field.find(".pagesearch").length) {
+    				  field.find(".pagesearch").remove();
+    				  return;
+    				}
+    				else {
+    				  var input = $('<input type="text" class="pagesearch">');
+    				  field.find(".editor-toolbar").append(input);
+    				}
+    				
     				var index = {
     					url: indexUrl,
     					getValue: "search",    	

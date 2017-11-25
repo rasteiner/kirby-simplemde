@@ -23,7 +23,6 @@
   z-index: 10; }
   .field-with-simplemde .editor-toolbar .editor-toolbar-inner {
     position: relative;
-    z-index: 2;
     white-space: nowrap;
     max-width: calc(100vw - 3em);
     overflow: auto; }
@@ -47,17 +46,6 @@
     .field-with-simplemde .editor-toolbar a.fa-header-1:after, .field-with-simplemde .editor-toolbar a.fa-header-2:after, .field-with-simplemde .editor-toolbar a.fa-header-3:after {
       font-size: 13px;
       top: 1px; }
-  .field-with-simplemde .editor-toolbar .easy-autocomplete:after {
-    font: normal normal normal 16px/1 FontAwesome;
-    content: "\f15b";
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 3em;
-    height: 45px;
-    line-height: 45px;
-    border-left: 1px dashed #ddd;
-    background: white; }
   .field-with-simplemde .editor-toolbar input.pagesearch {
     height: 45px;
     width: 100%;
@@ -88,8 +76,18 @@
           background: #f7f7f7; }
         .field-with-simplemde .editor-toolbar .easy-autocomplete-container ul li .uri {
           opacity: .5; }
+  .field-with-simplemde .editor-toolbar.pagelink-open .editor-toolbar-inner {
+    overflow: visible; }
   .field-with-simplemde .editor-toolbar.pagelink-open a {
     display: none; }
+    .field-with-simplemde .editor-toolbar.pagelink-open a[title="Page"] {
+      display: block;
+      position: absolute;
+      right: 0;
+      z-index: 2;
+      border-left: 1px dashed #ddd; }
+      .field-with-simplemde .editor-toolbar.pagelink-open a[title="Page"]:before {
+        color: black; }
 
 .field-with-simplemde.tabs-helper .editor-toolbar {
   top: 63px; }

@@ -31,7 +31,6 @@
     
     .editor-toolbar-inner {
       position: relative;
-      z-index: 2;
       white-space: nowrap;
       max-width: calc(100vw - 3em);
       overflow: auto;
@@ -71,18 +70,7 @@
     }
     
     .easy-autocomplete {
-      &:after {
-        font: normal normal normal 16px/1 FontAwesome;
-        content: "\f15b";
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 3em;
-        height: 45px;
-        line-height: 45px;
-        border-left: 1px dashed #ddd;
-        background: white;
-      }
+    	
     }
       input.pagesearch {
         height: 45px;
@@ -127,8 +115,22 @@
       }
     
     &.pagelink-open {
+      .editor-toolbar-inner {
+        overflow: visible;
+      }
+      
       a {
         display: none;
+        &[title="Page"] {
+          display: block;
+          position: absolute;
+          right: 0;
+          z-index: 2;
+          border-left: 1px dashed #ddd;
+          &:before {
+            color: black;
+          }
+        }
       }
     }
   }
