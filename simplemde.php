@@ -19,7 +19,8 @@ class SimplemdeField extends TextField {
     foreach($pagesToList as $p) {
       $pageList[] = array(
         'uri'      => (string)$p->uri(),
-        'title'    => (string)$p->title()
+        'title'    => (string)$p->title(),
+        'search'   => (string)$p->title() . " " . (string)$p->uri()
       );
     }
     return $pageList;

@@ -108,15 +108,16 @@
     			name: "pagelink",
     			action: function pagelinkFunction() {    				
     				field.find(".editor-toolbar").addClass("pagelink-open");
-    				var input = $('<input type="text" class="pagesearch" placeholder="Search for page to link...">');
+    				var input = $('<input type="text" class="pagesearch">');
     				field.find(".editor-toolbar").append(input);
     				var index = {
     					url: indexUrl,
-    					getValue: "title",    	
+    					getValue: "search",    	
+    					placeholder: "Search for page to link...",
           		template: {
 				        type: "custom",
 				        method: function(value, item) {
-				          return '<span class="title">' + value + '</span>' + 
+				          return '<span class="title">' + item.title + '</span>' + 
 				          '<span class="uri"> (' + item.uri + ')</span>';
 				        }
           		},
