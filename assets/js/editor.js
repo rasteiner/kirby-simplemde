@@ -106,8 +106,9 @@
     		},
     		{
     			name: "pagelink",
-    			action: function pagelinkFunction(){
-    				field.find(".editor-toolbar a[title='Page']").toggleClass("active");
+    			action: function pagelinkFunction(e, f){
+    				console.log(f);
+    				field.find(".editor-toolbar a[title='Page']").toggleClass("highlighted");
     				field.find(".pages").first().slideToggle(250);
     			},
     			className: "fa fa-file",
@@ -237,8 +238,6 @@
         	var cursorPos = cm.getCursor();
           cm.focus();
           
-          field.find(".editor-toolbar a[title='Page']").removeClass("active");
-          field.find(".pages").first().slideUp(250);
         });
         
         // Slide down the children when clicking on the slidedown icon

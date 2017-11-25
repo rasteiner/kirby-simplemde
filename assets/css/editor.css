@@ -27,7 +27,7 @@
     border: none;
     border-radius: 0;
     font-size: 14px; }
-    .field-with-simplemde .editor-toolbar a:hover, .field-with-simplemde .editor-toolbar a.active {
+    .field-with-simplemde .editor-toolbar a:hover, .field-with-simplemde .editor-toolbar a.highlighted {
       background: none;
       border: none;
       color: black !important; }
