@@ -2,7 +2,7 @@
     
   .field-content {
     border: 2px solid #ddd;
-    &.focused {
+    &.focused, &:focus-within { 
       border-color: #8dae28;
     }
   }
@@ -35,90 +35,95 @@
       color: rgb(119, 119, 119) !important;
       border: none;
       border-radius: 0;
-      font-size: 14px;
-      &:hover, &.highlighted {
+      font-size: 16px;
+      width: 45px;
+      height: 45px;
+      &:hover , &.active{
         background: none;
         border: none;
         color: black !important;
       }
+      
       &:focus {
         outline: none;
       }
       
+      &:before {
+        line-height: 45px;
+      }
+      
       &.fa-header-1, &.fa-header-2, &.fa-header-3 {
         &:after {
-          font-size: 11px;
+          font-size: 13px;
           top: 1px;
         }
       }
     }
     
-    & > .pages {
-      display: none;
-      border-top: 1px solid #efefef;
-      max-height: 450px; // Max height of 10 pages
-      overflow: auto;
-      .page {
-        width: 100%;
-        &:last-child .pagename {
-          border-bottom: none;
-        }
-        .pagename {
-          width: 100%;
-          display: table;
-          border-bottom: 1px solid #efefef;
-          span.name {
-            padding: 0.75em 1em;
-            display: table-cell;
-            vertical-align: middle;
-            text-align: left;
-          }
-          span.smallbox {
-            padding: 0.75em 1em;
-            display: table-cell;
-            vertical-align: middle;
-            text-align: center;
-            width: 3.5em;
-            border-left: 1px solid rgba(0, 0, 0, .075);
-            font-weight: bold;
-            &.smalllink {
-              &.active {
-                &:hover {
-                  cursor: pointer;
-                }
-              }
-            }
-          }
-        }
-        
-        .children {
-          display: none;
-          border-bottom: 1px solid #efefef;
-          .pages {
-            &[data-depth="2"] {
-            	background-color: rgba(0, 0, 0, .025);
-            }
-            &[data-depth="3"] {
-            	background-color: rgba(0, 0, 0, .05);
-            }
-            &[data-depth="4"] {
-            	background-color: rgba(0, 0, 0, .075);
-            }
-            &[data-depth="5"] {
-            	background-color: rgba(0, 0, 0, .1);
-            }
-            &[data-depth="6"] {
-            	background-color: rgba(0, 0, 0, .125);
-            }
-          }
-        }
-        
-        &.slid > .pagename .slidedown i{
-          transform: rotate(180deg);
-        }
+    .easy-autocomplete {
+      &:after {
+        font: normal normal normal 16px/1 FontAwesome;
+        content: "\f15b";
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 3em;
+        height: 45px;
+        line-height: 45px;
+        border-left: 1px dashed #ddd;
       }
     }
+      input.pagesearch {
+        height: 45px;
+        width: 100%;
+        border: none;
+        font: inherit;
+        box-sizing: border-box;
+        padding: 10px 14px;
+        &:focus {
+          outline: none;
+        }
+      }
+      .easy-autocomplete-container {
+        position: absolute;
+        width: 100%;
+        z-index: 10;
+        text-align: left;
+        box-shadow: 0px 2px 3px rgba(0,0,0,0.2);
+        ul {
+          list-style: none;
+          li {
+            height: 45px;
+            padding: 0 14px;
+            border-top: 1px solid #EFEFEF;
+            background: white;
+            line-height: 45px;
+            display: block;
+            &:hover {
+              cursor: pointer;
+              .title {
+                color: #8dae28;
+              }
+            }
+            &.selected {
+              background: #f7f7f7;
+            }
+            
+            .title {
+              
+            }
+            .uri {
+              opacity: .5; 
+            }
+          }
+        }
+      }
     
+    &.pagelink-open {
+      a {
+        display: none;
+      }
+    }
   }
   
   &.tabs-helper .editor-toolbar {

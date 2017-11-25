@@ -6,7 +6,7 @@
     	
     	var simplemde = $(this);
     	var field = simplemde.closest(".field")
-    	var modalUrl = simplemde.data("modal_url");
+    	var indexUrl = simplemde.data("index");
     	
     	var buttons = [
     	  "h2",
@@ -106,10 +106,47 @@
     		},
     		{
     			name: "pagelink",
-    			action: function pagelinkFunction(e, f){
-    				console.log(f);
-    				field.find(".editor-toolbar a[title='Page']").toggleClass("highlighted");
-    				field.find(".pages").first().slideToggle(250);
+    			action: function pagelinkFunction() {    				
+    				field.find(".editor-toolbar").addClass("pagelink-open");
+    				var input = $('<input type="text" class="pagesearch" placeholder="Search for page to link...">');
+    				field.find(".editor-toolbar").append(input);
+    				var index = {
+    					url: indexUrl,
+    					getValue: "title",    	
+          		template: {
+				        type: "custom",
+				        method: function(value, item) {
+				          return '<span class="title">' + value + '</span>' + 
+				          '<span class="uri"> (' + item.uri + ')</span>';
+				        }
+          		},
+    					list: {
+    						match: {
+									enabled: true
+								},
+    						onChooseEvent: function() {
+    							var title = input.getSelectedItemData().title;
+    							var uri = input.getSelectedItemData().uri
+    							
+    							var cm = simplemde.codemirror;
+    							var selection = cm.getSelection();
+    							if (selection) {
+    							  var replacement = '(link: ' + uri + ' text: ' + selection + ')';
+    							}
+    							else {
+    							  var replacement = '(link: ' + uri + ' text: ' + title + ')';
+    							}
+    							cm.replaceSelection(replacement);
+    							var cursorPos = cm.getCursor();
+    							cm.focus();
+    							
+    							field.find(".editor-toolbar").removeClass("pagelink-open");
+    							field.find(".editor-toolbar .easy-autocomplete").remove();
+								}
+    					}
+    				};
+    				input.easyAutocomplete(index);
+    				input.focus();
     			},
     			className: "fa fa-file",
     			title: "Page",
@@ -206,49 +243,6 @@
       if ($(".tab-placeholder").length || $(".tab-container").length) {
         field.addClass("tabs-helper");
       }
-  
-      // PAGE LINK FUNCTIONALITY -->
-      
-        // Move the pagelist into the dynamically created toolbar
-        field.find(".pages").not(".editor-toolbar .pages").first().appendTo(field.find(".editor-toolbar"));
-        
-        // Remove the slidedown icon from pages without children
-        field.find(".editor-toolbar .pages").find(".page").each(function() {
-        	if ($(this).children(".children").length) {
-        	  $(this).find(".slidedown").first().addClass("active");
-        	}
-        	else {
-        	  $(this).find(".slidedown").first().html("–");
-        	}
-        });
-        
-        // Handle page link click event 
-        field.find(".editor-toolbar .pages").first().on("click", ".link", function() {
-        	var cm = simplemde.codemirror;
-        	var selection = cm.getSelection();
-        	var pageTitle = $(this).siblings(".name").text();
-        	var pageUri = $(this).data("link");
-        	
-        	var text = ' text: ' + pageTitle;
-        	if (selection) {
-            text = ' text: ' + selection;
-          }
-        	
-        	cm.replaceSelection('(link: ' + pageUri + text + ')');
-        	var cursorPos = cm.getCursor();
-          cm.focus();
-          
-        });
-        
-        // Slide down the children when clicking on the slidedown icon
-        field.find(".editor-toolbar .pages").first().on("click", ".slidedown", function() {
-        	if ($(this).closest(".page").children(".children").length) {
-        	  $(this).closest(".page").toggleClass("slid");
-        	  $(this).closest(".page").children(".children").slideToggle(250);
-        	}
-        });
-        
-      // <-- PAGE LINK FUNCTIONALITY
             
     });
 
