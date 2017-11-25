@@ -2,7 +2,7 @@
 
 This is a textarea with Markdown highlighting using [SimpleMDE](https://github.com/sparksuite/simplemde-markdown-editor).
 
-![Preview](https://user-images.githubusercontent.com/7975568/33209410-ef90385e-d115-11e7-8364-5c849b84218c.gif)
+![Preview](https://user-images.githubusercontent.com/7975568/33235164-07cf8c6c-d233-11e7-979e-58981a306b7b.gif)
 
 ## Installation
 
