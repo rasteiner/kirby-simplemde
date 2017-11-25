@@ -30,6 +30,8 @@ Compared to the built-in textarea, this field has some advantages:
 
 ## Options
 
+### Buttons
+
 By default the following buttons are displayed:
 
 - `h2`
@@ -39,8 +41,8 @@ By default the following buttons are displayed:
 - `unordered-list`
 - `ordered-list`
 - `link`
-- `email`
 - `pagelink`
+- `email`
 
 There are also some more built-in buttons:
 
@@ -59,6 +61,16 @@ text:
     - italic
     - link
 ```
+
+### Page link
+
+As of version 1.1.2 this field will automatically hide modules and modules container pages with the title `_modules` from the page list. To include the modules you can add this to your `config.php`:
+
+```
+c::set('simplemde.excludeModules', false);
+```
+
+### Highlighting
 
 If you don't want to highlight Kirbytags you can add this to your `config.php`:
 
