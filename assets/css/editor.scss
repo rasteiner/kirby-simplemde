@@ -71,6 +71,7 @@
         height: 45px;
         line-height: 45px;
         border-left: 1px dashed #ddd;
+        background: white;
       }
     }
       input.pagesearch {
@@ -99,6 +100,7 @@
             background: white;
             line-height: 45px;
             display: block;
+            overflow: hidden;
             &:hover {
               cursor: pointer;
               .title {

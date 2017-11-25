@@ -49,7 +49,8 @@
     width: 3em;
     height: 45px;
     line-height: 45px;
-    border-left: 1px dashed #ddd; }
+    border-left: 1px dashed #ddd;
+    background: white; }
   .field-with-simplemde .editor-toolbar input.pagesearch {
     height: 45px;
     width: 100%;
@@ -73,7 +74,8 @@
         border-top: 1px solid #EFEFEF;
         background: white;
         line-height: 45px;
-        display: block; }
+        display: block;
+        overflow: hidden; }
         .field-with-simplemde .editor-toolbar .easy-autocomplete-container ul li:hover {
           cursor: pointer; }
           .field-with-simplemde .editor-toolbar .easy-autocomplete-container ul li:hover .title {
