@@ -1,5 +1,12 @@
 .field-with-simplemde {
     
+  .field-content {
+    border: 2px solid #ddd;
+    &.focused {
+      border-color: #8dae28;
+    }
+  }
+  
   .editor-toolbar {
     padding: 0;
     text-align: center;
@@ -7,15 +14,14 @@
     border-bottom: 1px solid #EFEFEF;
     background: white;
     opacity: 1;
-    border-radius: 0;
-    margin-left: 2px;
-    margin-right: 2px;
-    
+    border-radius: 0;    
     position: sticky;
     top: 0px;
     z-index: 10;
     
     .editor-toolbar-inner {
+      position: relative;
+      z-index: 2;
       white-space: nowrap;
       max-width: calc(100vw - 3em);
       overflow: auto;
@@ -30,7 +36,7 @@
       border: none;
       border-radius: 0;
       font-size: 14px;
-      &:hover {
+      &:hover, &.active {
         background: none;
         border: none;
         color: black !important;
@@ -38,6 +44,7 @@
       &:focus {
         outline: none;
       }
+      
       &.fa-header-1, &.fa-header-2, &.fa-header-3 {
         &:after {
           font-size: 11px;
@@ -45,7 +52,75 @@
         }
       }
     }
+    
+    & > .pages {
+      display: none;
+      border-top: 1px solid #efefef;
+      max-height: 450px; // Max height of 10 pages
+      overflow: auto;
+      .page {
+        width: 100%;
+        &:last-child .pagename {
+          border-bottom: none;
+        }
+        .pagename {
+          width: 100%;
+          display: table;
+          border-bottom: 1px solid #efefef;
+          span.name {
+            padding: 0.75em 1em;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: left;
+          }
+          span.smallbox {
+            padding: 0.75em 1em;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            width: 3.5em;
+            border-left: 1px solid rgba(0, 0, 0, .075);
+            font-weight: bold;
+            &.smalllink {
+              &.active {
+                &:hover {
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+        
+        .children {
+          display: none;
+          border-bottom: 1px solid #efefef;
+          .pages {
+            &[data-depth="2"] {
+            	background-color: rgba(0, 0, 0, .025);
+            }
+            &[data-depth="3"] {
+            	background-color: rgba(0, 0, 0, .05);
+            }
+            &[data-depth="4"] {
+            	background-color: rgba(0, 0, 0, .075);
+            }
+            &[data-depth="5"] {
+            	background-color: rgba(0, 0, 0, .1);
+            }
+            &[data-depth="6"] {
+            	background-color: rgba(0, 0, 0, .125);
+            }
+          }
+        }
+        
+        &.slid > .pagename .slidedown i{
+          transform: rotate(180deg);
+        }
+      }
+    }
+    
   }
+  
   &.tabs-helper .editor-toolbar {
     top: 63px;
   }
@@ -53,12 +128,6 @@
   .CodeMirror {
     border-radius: 0;
     border: none;
-    padding-top: 43px;
-    margin-top: -33px;
-    border: 2px solid #ddd;
-    &.CodeMirror-focused {
-      border-color: #8dae28;
-    }
     &.CodeMirror-over {
       border-color: black;
     }

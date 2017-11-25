@@ -1,3 +1,8 @@
+.field-with-simplemde .field-content {
+  border: 2px solid #ddd; }
+  .field-with-simplemde .field-content.focused {
+    border-color: #8dae28; }
+
 .field-with-simplemde .editor-toolbar {
   padding: 0;
   text-align: center;
@@ -6,12 +11,12 @@
   background: white;
   opacity: 1;
   border-radius: 0;
-  margin-left: 2px;
-  margin-right: 2px;
   position: sticky;
   top: 0px;
   z-index: 10; }
   .field-with-simplemde .editor-toolbar .editor-toolbar-inner {
+    position: relative;
+    z-index: 2;
     white-space: nowrap;
     max-width: calc(100vw - 3em);
     overflow: auto; }
@@ -22,7 +27,7 @@
     border: none;
     border-radius: 0;
     font-size: 14px; }
-    .field-with-simplemde .editor-toolbar a:hover {
+    .field-with-simplemde .editor-toolbar a:hover, .field-with-simplemde .editor-toolbar a.active {
       background: none;
       border: none;
       color: black !important; }
@@ -31,18 +36,56 @@
     .field-with-simplemde .editor-toolbar a.fa-header-1:after, .field-with-simplemde .editor-toolbar a.fa-header-2:after, .field-with-simplemde .editor-toolbar a.fa-header-3:after {
       font-size: 11px;
       top: 1px; }
+  .field-with-simplemde .editor-toolbar > .pages {
+    display: none;
+    border-top: 1px solid #efefef;
+    max-height: 450px;
+    overflow: auto; }
+    .field-with-simplemde .editor-toolbar > .pages .page {
+      width: 100%; }
+      .field-with-simplemde .editor-toolbar > .pages .page:last-child .pagename {
+        border-bottom: none; }
+      .field-with-simplemde .editor-toolbar > .pages .page .pagename {
+        width: 100%;
+        display: table;
+        border-bottom: 1px solid #efefef; }
+        .field-with-simplemde .editor-toolbar > .pages .page .pagename span.name {
+          padding: 0.75em 1em;
+          display: table-cell;
+          vertical-align: middle;
+          text-align: left; }
+        .field-with-simplemde .editor-toolbar > .pages .page .pagename span.smallbox {
+          padding: 0.75em 1em;
+          display: table-cell;
+          vertical-align: middle;
+          text-align: center;
+          width: 3.5em;
+          border-left: 1px solid rgba(0, 0, 0, 0.075);
+          font-weight: bold; }
+          .field-with-simplemde .editor-toolbar > .pages .page .pagename span.smallbox.smalllink.active:hover {
+            cursor: pointer; }
+      .field-with-simplemde .editor-toolbar > .pages .page .children {
+        display: none;
+        border-bottom: 1px solid #efefef; }
+        .field-with-simplemde .editor-toolbar > .pages .page .children .pages[data-depth="2"] {
+          background-color: rgba(0, 0, 0, 0.025); }
+        .field-with-simplemde .editor-toolbar > .pages .page .children .pages[data-depth="3"] {
+          background-color: rgba(0, 0, 0, 0.05); }
+        .field-with-simplemde .editor-toolbar > .pages .page .children .pages[data-depth="4"] {
+          background-color: rgba(0, 0, 0, 0.075); }
+        .field-with-simplemde .editor-toolbar > .pages .page .children .pages[data-depth="5"] {
+          background-color: rgba(0, 0, 0, 0.1); }
+        .field-with-simplemde .editor-toolbar > .pages .page .children .pages[data-depth="6"] {
+          background-color: rgba(0, 0, 0, 0.125); }
+      .field-with-simplemde .editor-toolbar > .pages .page.slid > .pagename .slidedown i {
+        transform: rotate(180deg); }
 
 .field-with-simplemde.tabs-helper .editor-toolbar {
   top: 63px; }
 
 .field-with-simplemde .CodeMirror {
   border-radius: 0;
-  border: none;
-  padding-top: 43px;
-  margin-top: -33px;
-  border: 2px solid #ddd; }
-  .field-with-simplemde .CodeMirror.CodeMirror-focused {
-    border-color: #8dae28; }
+  border: none; }
   .field-with-simplemde .CodeMirror.CodeMirror-over {
     border-color: black; }
   .field-with-simplemde .CodeMirror .cm-formatting {

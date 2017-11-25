@@ -16,6 +16,7 @@
     	  "unordered-list",
     	  "ordered-list",
     	  "link",
+    	  "pagelink",
     	  "email"
     	];
     	
@@ -104,6 +105,15 @@
     			title: "Link",
     		},
     		{
+    			name: "pagelink",
+    			action: function pagelinkFunction(){
+    				field.find(".editor-toolbar a[title='Page']").toggleClass("active");
+    				field.find(".pages").first().slideToggle(250);
+    			},
+    			className: "fa fa-file",
+    			title: "Page",
+    		},
+    		{
     			name: "email",
     			action: function emailFunction(){
     				var cm = simplemde.codemirror;
@@ -156,8 +166,6 @@
     		toolbar: toolbarItems,
       });
       
-      
-      
       // Drag and Drop
       field.find('.CodeMirror').droppable({
         hoverClass: 'CodeMirror-over',
@@ -179,6 +187,14 @@
           }
         }
       });
+      
+      // Focus
+      simplemde.codemirror.on("focus", function() {
+      	field.find('.field-content').addClass("focused");
+      });
+      simplemde.codemirror.on("blur", function() {
+      	field.find('.field-content').removeClass("focused");
+      });
             
       // Keep changes
       simplemde.codemirror.on("change", function() {
@@ -188,7 +204,52 @@
       // Check for tabs plugin
       if ($(".tab-placeholder").length || $(".tab-container").length) {
         field.addClass("tabs-helper");
-      }           
+      }
+  
+      // PAGE LINK FUNCTIONALITY -->
+      
+        // Move the pagelist into the dynamically created toolbar
+        field.find(".pages").not(".editor-toolbar .pages").first().appendTo(field.find(".editor-toolbar"));
+        
+        // Remove the slidedown icon from pages without children
+        field.find(".editor-toolbar .pages").find(".page").each(function() {
+        	if ($(this).children(".children").length) {
+        	  $(this).find(".slidedown").first().addClass("active");
+        	}
+        	else {
+        	  $(this).find(".slidedown").first().html("–");
+        	}
+        });
+        
+        // Handle page link click event 
+        field.find(".editor-toolbar .pages").first().on("click", ".link", function() {
+        	var cm = simplemde.codemirror;
+        	var selection = cm.getSelection();
+        	var pageTitle = $(this).siblings(".name").text();
+        	var pageUri = $(this).data("link");
+        	
+        	var text = ' text: ' + pageTitle;
+        	if (selection) {
+            text = ' text: ' + selection;
+          }
+        	
+        	cm.replaceSelection('(link: ' + pageUri + text + ')');
+        	var cursorPos = cm.getCursor();
+          cm.focus();
+          
+          field.find(".editor-toolbar a[title='Page']").removeClass("active");
+          field.find(".pages").first().slideUp(250);
+        });
+        
+        // Slide down the children when clicking on the slidedown icon
+        field.find(".editor-toolbar .pages").first().on("click", ".slidedown", function() {
+        	if ($(this).closest(".page").children(".children").length) {
+        	  $(this).closest(".page").toggleClass("slid");
+        	  $(this).closest(".page").children(".children").slideToggle(250);
+        	}
+        });
+        
+      // <-- PAGE LINK FUNCTIONALITY
             
     });
 
