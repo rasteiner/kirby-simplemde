@@ -17,6 +17,9 @@ class SimplemdeField extends TextField {
   public function pageList($pagesToList) {
     $pageList = array();
     foreach($pagesToList as $p) {
+      if (c::get('simplemde.excludeModules', true)) {
+        if ($p->title() == "_modules" OR str::startsWith($p->intendedTemplate(), 'module.')) continue;
+      }
       $pageList[] = array(
         'uri'      => (string)$p->uri(),
         'title'    => (string)$p->title(),
