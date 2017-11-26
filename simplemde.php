@@ -34,20 +34,40 @@ class SimplemdeField extends TextField {
       array(
         'pattern' => 'index.json',
         'action'  => function() {
-          return json_encode($this->pageList(site()->index()), JSON_UNESCAPED_SLASHES);
+          return json_encode($this->pageList(site()->index()), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        },
+        'method'  => 'get|post'
+      ),
+      array(
+        'pattern' => 'translation.json',
+        'action'  => function() {
+          if (version_compare(panel()->version(), '2.2', '>=')) {
+              $lang = panel()->translation()->code();
+          } else {
+              $lang = panel()->language();
+          }
+          $langDir = __DIR__ . DS . 'languages' . DS;
+          if (file_exists($langDir . $lang . '.php')) {
+            $translation = include $langDir . $lang . '.php';
+          }
+          else { 
+            $translation = include $langDir . 'en.php';
+          }
+          
+          return json_encode($translation, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
         },
         'method'  => 'get|post'
       )
     );
   }
+  
     
   public function input() {
 
     $input = parent::input();
     $input->tag('textarea');
     $input->data('field', 'simplemde');
-    $input->data('index', $this->model()->url('field/' . $this->name() . '/simplemde/index.json'));
-    
+    $input->data('json', $this->model()->url('field/' . $this->name() . '/simplemde/'));
     
     $input->removeAttr('value');
     $input->html($this->value() ? htmlentities($this->value(), ENT_NOQUOTES, 'UTF-8') : false);

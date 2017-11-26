@@ -80,13 +80,13 @@
     overflow: visible; }
   .field-with-simplemde .editor-toolbar.pagelink-open a {
     display: none; }
-    .field-with-simplemde .editor-toolbar.pagelink-open a[title="Page"] {
+    .field-with-simplemde .editor-toolbar.pagelink-open a.fa-file {
       display: block;
       position: absolute;
       right: 0;
       z-index: 2;
       border-left: 1px dashed #ddd; }
-      .field-with-simplemde .editor-toolbar.pagelink-open a[title="Page"]:before {
+      .field-with-simplemde .editor-toolbar.pagelink-open a.fa-file:before {
         color: black; }
 
 .field-with-simplemde.tabs-helper .editor-toolbar {

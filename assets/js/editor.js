@@ -12,12 +12,30 @@
     		return;
     	}
     	    	
-    	var field = simplemde.closest(".field")
-    	var indexUrl = simplemde.data("index");
+    	var field = simplemde.closest(".field");
+    	var indexUrl = simplemde.data("json") + 'index.json';
+    	var translationUrl = simplemde.data("json") + 'translation.json';
+    	
+    	// Translation
+    	$.ajax({
+    	  url: translationUrl,
+    	  dataType: 'json',
+    	  success: function(translation, simplemde = simplemde) {
+    	    // Buttons
+    	    $(".field-with-simplemde").find(".editor-toolbar-inner a").each(function() {
+    	    	var title = $(this).attr("title").replace(/[{}]/g, "");
+    	    	if (translation[title]) {
+    	    	  $(this).attr("title", translation[title]);
+    	    	}
+    	    });
+    	    // Pagelink
+    	    $(".field-with-simplemde").find(".editor-toolbar").data("pagelink-placeholder", translation["pagelink.placeholder"] + "...");
+    	  }
+    	});
     	
     	var buttons = [
-    	  "h2",
-    	  "h3",
+    	  "heading-2",
+    	  "heading-3",
     	  "bold",
     	  "italic",
     	  "unordered-list",
@@ -28,63 +46,67 @@
     	];
     	
     	if (simplemde.data("buttons")) {
-    	  buttons = simplemde.data("buttons").split(" ");
+    	  var setButtons = simplemde.data("buttons");
+    	  setButtons = setButtons.replace("h1", "heading-1");
+    	  setButtons = setButtons.replace("h2", "heading-2");
+    	  setButtons = setButtons.replace("h3", "heading-3");
+    	  buttons = setButtons.split(" ");
     	}
     	
     	var toolbarItems = [
     		{
-    			name: "h1",
+    			name: "heading-1",
     			action: SimpleMDE.toggleHeading1,
     			className: "fa fa-header fa-header-x fa-header-1",
-    			title: "Heading 1",
+    			title: "{{button.h1}}",
     		},
     		{
-    			name: "h2",
+    			name: "heading-2",
     			action: SimpleMDE.toggleHeading2,
     			className: "fa fa-header fa-header-x fa-header-2",
-    			title: "Heading 2",
+    			title: "{{button.h2}}",
     		},
     		{
-    			name: "h3",
+    			name: "heading-3",
     			action: SimpleMDE.toggleHeading3,
     			className: "fa fa-header fa-header-x fa-header-3",
-    			title: "Heading 3",
+    			title: "{{button.h3}}",
     		},
     		{
     			name: "bold",
     			action: SimpleMDE.toggleBold,
     			className: "fa fa-bold",
-    			title: "Bold",
+    			title: "{{button.bold}}",
     		},
     		{
     			name: "italic",
     			action: SimpleMDE.toggleItalic,
     			className: "fa fa-italic",
-    			title: "Italic",
+    			title: "{{button.italic}}",
     		},
     		{
     			name: "unordered-list",
     			action: SimpleMDE.toggleUnorderedList,
     			className: "fa fa-list-ul",
-    			title: "Unordered List",
+    			title: "{{button.unordered-list}}",
     		},
     		{
     			name: "ordered-list",
     			action: SimpleMDE.toggleOrderedList,
     			className: "fa fa-list-ol",
-    			title: "Ordered List",
+    			title: "{{button.ordered-list}}",
     		},
     		{
     			name: "quote",
     			action: SimpleMDE.toggleBlockquote,
     			className: "fa fa-quote-left",
-    			title: "Quote",
+    			title: "{{button.quote}}",
     		},
     		{
     			name: "horizontal-rule",
     			action: SimpleMDE.drawHorizontalRule,
     			className: "fa fa-minus",
-    			title: "Horizontal Line",
+    			title: "{{button.horizontal-rule}}",
     		},
     		{
     			name: "link",
@@ -109,7 +131,7 @@
     	      cm.focus();
     			},
     			className: "fa fa-link",
-    			title: "Link",
+    			title: "{{button.link}}",
     		},
     		{
     			name: "pagelink",
@@ -124,10 +146,12 @@
     				  field.find(".editor-toolbar").append(input);
     				}
     				
+    				var placeholder = field.find(".editor-toolbar").data("pagelink-placeholder");
+    				
     				var index = {
     					url: indexUrl,
     					getValue: "search",    	
-    					placeholder: "Search for page to link...",
+    					placeholder: placeholder,
           		template: {
 				        type: "custom",
 				        method: function(value, item) {
@@ -164,7 +188,7 @@
     				input.focus();
     			},
     			className: "fa fa-file",
-    			title: "Page",
+    			title: "{{button.page}}",
     		},
     		{
     			name: "email",
@@ -196,7 +220,7 @@
     		    cm.focus();
     			},
     			className: "fa fa-envelope",
-    			title: "Email",
+    			title: "{{button.email}}",
     		}
     	];
 
@@ -207,7 +231,6 @@
     			}
     		}
       });
-      
       
       var simplemde = new SimpleMDE({
       	element: $(this)[0],

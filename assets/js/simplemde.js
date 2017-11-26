@@ -15038,19 +15038,7 @@ var bindings = {
 
 var shortcuts = {
 	"toggleBold": "Cmd-B",
-	"toggleItalic": "Cmd-I",
-	"drawLink": "Cmd-K",
-	"toggleHeadingSmaller": "Cmd-H",
-	"toggleHeadingBigger": "Shift-Cmd-H",
-	"cleanBlock": "Cmd-E",
-	"drawImage": "Cmd-Alt-I",
-	"toggleBlockquote": "Cmd-'",
-	"toggleOrderedList": "Cmd-Alt-L",
-	"toggleUnorderedList": "Cmd-L",
-	"toggleCodeBlock": "Cmd-Alt-C",
-	"togglePreview": "Cmd-P",
-	"toggleSideBySide": "F9",
-	"toggleFullScreen": "F11"
+	"toggleItalic": "Cmd-I"
 };
 
 var getBindingName = function(f) {
@@ -15117,12 +15105,12 @@ function createTootlip(title, action, shortcuts) {
 	var actionName;
 	var tooltip = title;
 
-	if(action) {
-		actionName = getBindingName(action);
-		if(shortcuts[actionName]) {
-			tooltip += " (" + fixShortcut(shortcuts[actionName]) + ")";
-		}
-	}
+//	if(action) {
+//		actionName = getBindingName(action);
+//		if(shortcuts[actionName]) {
+//			tooltip += " (" + fixShortcut(shortcuts[actionName]) + ")";
+//		}
+//	}
 
 	return tooltip;
 }
