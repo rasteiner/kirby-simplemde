@@ -201,6 +201,12 @@
                         
             input.focus();
             
+            input.on('keyup',function(evt) {
+              if (evt.keyCode == 27) {
+                field.find(".editor-toolbar").removeClass("pagelink-open");
+                field.find(".pagesearch").remove();
+              }
+            });
     				
     			},
     			className: "fa fa-file",
