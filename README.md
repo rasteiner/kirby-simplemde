@@ -77,3 +77,13 @@ If you don't want to highlight Kirbytags you can add this to your `config.php`:
 ```
 c::set('simplemde.kirbytagHighlighting', false);
 ```
+
+### Replace core textarea
+
+You can replace the core textarea with this setting in your `config.php`:
+
+```
+c::set('simplemde.replaceTextarea', true);
+```
+
+
