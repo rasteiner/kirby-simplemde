@@ -48,3 +48,9 @@ class SimplemdeField extends TextField {
   }
 
 }
+
+if (c::get('simplemde.replaceTextarea', false)) {
+  class TextareaField extends SimplemdeField {
+    
+  }
+}
