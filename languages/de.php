@@ -18,5 +18,6 @@ return [
   
   // Pagelink
   'pagelink.placeholder'   => 'Nach Seite suchen',
+  'pagelink.no-results'   => 'Keine Seiten gefunden',
   
 ];

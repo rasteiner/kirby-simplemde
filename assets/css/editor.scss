@@ -86,6 +86,8 @@
       .easy-autocomplete-container {
         position: absolute;
         width: 100%;
+        max-height: 600%;
+        overflow: auto;
         z-index: 10;
         text-align: left;
         box-shadow: 0px 2px 3px rgba(0,0,0,0.2);
@@ -102,6 +104,13 @@
             &:hover, &.selected {
               cursor: pointer;
               background: #f7f7f7;
+            }
+            &.no-results {
+              color: #777;
+              &:hover {
+                background: white;
+                cursor: auto;
+              }
             }
             
             .title {

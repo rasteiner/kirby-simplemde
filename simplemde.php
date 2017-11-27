@@ -14,19 +14,13 @@ class SimplemdeField extends TextField {
     )
   );
   
-  public function pageList($pagesToList) {
-    $pageList = array();
-    foreach($pagesToList as $p) {
-      if (c::get('simplemde.excludeModules', true)) {
-        if ($p->title() == "_modules" OR str::startsWith($p->intendedTemplate(), 'module.')) continue;
-      }
-      $pageList[] = array(
-        'uri'      => (string)$p->uri(),
-        'title'    => (string)$p->title(),
-        'search'   => (string)$p->title() . " (" . (string)$p->uri() . ")"
-      );
-    }
-    return $pageList;
+  public function search() {
+    return site()->search(get("phrase"), array(
+    'minlength' => 1,
+    'fields' => array(
+      "title",
+      "uri"
+    )))->toArray();
   }
   
   public function routes() {
@@ -34,7 +28,7 @@ class SimplemdeField extends TextField {
       array(
         'pattern' => 'index.json',
         'action'  => function() {
-          return json_encode($this->pageList(site()->index()), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+          return json_encode($this->search(), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
         },
         'method'  => 'get|post'
       ),

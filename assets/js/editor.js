@@ -30,6 +30,7 @@
     	    });
     	    // Pagelink
     	    $(".field-with-simplemde").find(".editor-toolbar").data("pagelink-placeholder", translation["pagelink.placeholder"] + "...");
+    	    $(".field-with-simplemde").find(".editor-toolbar").data("no-results", translation["pagelink.no-results"]);
     	  }
     	});
     	
@@ -142,27 +143,24 @@
     				  return;
     				}
     				else {
-    				  var input = $('<input type="text" class="pagesearch">');
+    				  var input = $('<input type="text" class="pagesearch" placeholder="' + field.find(".editor-toolbar").data("pagelink-placeholder") + '">');
     				  field.find(".editor-toolbar").append(input);
     				}
-    				
-    				var placeholder = field.find(".editor-toolbar").data("pagelink-placeholder");
-    				
+    				    				
     				var index = {
-    					url: indexUrl,
-    					getValue: "search",    	
-    					placeholder: placeholder,
+    					url: function(phrase) {
+  							return indexUrl + "?phrase=" + phrase;
+  						},
+    					getValue: "title",
           		template: {
 				        type: "custom",
 				        method: function(value, item) {
-				          return '<span class="title">' + item.title + '</span>' + 
+				          return '<span class="title">' + value + '</span>' + 
 				          '<span class="uri"> (' + item.uri + ')</span>';
 				        }
           		},
     					list: {
-    						match: {
-									enabled: true
-								},
+    						maxNumberOfElements: 100,
     						onChooseEvent: function() {
     							var title = input.getSelectedItemData().title;
     							var uri = input.getSelectedItemData().uri
@@ -181,11 +179,20 @@
     							
     							field.find(".editor-toolbar").removeClass("pagelink-open");
     							field.find(".editor-toolbar .easy-autocomplete").remove();
+								},
+								onHideListEvent: function() {
+									var containerList = field.find(".easy-autocomplete-container ul");
+									if ($(containerList).children('li').length <= 0) {
+									  $(containerList).html('<li class="no-results">' + field.find(".editor-toolbar").data("no-results") + '</li>').show();
+									}
 								}
     					}
     				};
     				input.easyAutocomplete(index);
-    				input.focus();
+                        
+            input.focus();
+            
+    				
     			},
     			className: "fa fa-file",
     			title: "{{button.page}}",
