@@ -205,6 +205,7 @@
               if (evt.keyCode == 27) {
                 field.find(".editor-toolbar").removeClass("pagelink-open");
                 field.find(".pagesearch").remove();
+                simplemde.codemirror.focus();
               }
             });
     				
