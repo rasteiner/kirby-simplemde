@@ -1,5 +1,7 @@
 <?php 
 
+  if(!function_exists('panel')) return;
+
   $kirby->set('field', 'simplemde', __DIR__ . DS . 'simplemde');
   
   function search() {
