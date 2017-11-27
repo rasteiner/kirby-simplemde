@@ -61,7 +61,8 @@ class SimplemdeField extends TextField {
     $input = parent::input();
     $input->tag('textarea');
     $input->data('field', 'simplemde');
-    $input->data('json', $this->model()->url('field/' . $this->name() . '/simplemde/'));
+    
+    $input->data('json', purl($this->model, 'field/' . $this->name . '/simplemde/'));
     
     $input->removeAttr('value');
     $input->html($this->value() ? htmlentities($this->value(), ENT_NOQUOTES, 'UTF-8') : false);

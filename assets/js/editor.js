@@ -16,6 +16,10 @@
     	var indexUrl = simplemde.data("json") + 'index.json';
     	var translationUrl = simplemde.data("json") + 'translation.json';
     	
+    	if(field.data('editor')) {
+    	  return $(this);
+    	}
+    	
     	// Translation
     	$.ajax({
     	  url: translationUrl,
@@ -283,6 +287,8 @@
       }
       
       simplemde.codemirror.setOption("readonly", "true");
+      
+      field.data('editor', true);
             
     });
 
