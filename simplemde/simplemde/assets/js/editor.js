@@ -13,8 +13,8 @@
     	}
     	    	
     	var field = simplemde.closest(".field");
-    	var indexUrl = simplemde.data("json") + 'index.json';
-    	var translationUrl = simplemde.data("json") + 'translation.json';
+    	var indexUrl = simplemde.data("json") + '/index.json';
+    	var translationUrl = simplemde.data("json") + '/translation.json';
     	
     	if(field.data('editor')) {
     	  return $(this);
@@ -51,11 +51,16 @@
     	];
     	
     	if (simplemde.data("buttons")) {
-    	  var setButtons = simplemde.data("buttons");
-    	  setButtons = setButtons.replace("h1", "heading-1");
-    	  setButtons = setButtons.replace("h2", "heading-2");
-    	  setButtons = setButtons.replace("h3", "heading-3");
-    	  buttons = setButtons.split(" ");
+        var setButtons = simplemde.data("buttons");
+        if (setButtons == "no") {
+          buttons = [];
+        }
+        else {
+          setButtons = setButtons.replace("h1", "heading-1");
+          setButtons = setButtons.replace("h2", "heading-2");
+          setButtons = setButtons.replace("h3", "heading-3");
+          buttons = setButtons.split(" ");
+        }
     	}
     	
     	var toolbarItems = [

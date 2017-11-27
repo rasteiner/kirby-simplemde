@@ -6,7 +6,7 @@ This is a textarea with Markdown highlighting using [SimpleMDE](https://github.c
 
 ## Installation
 
-Put the `kirby-simplemde-master` folder into your `site/fields` folder and rename it to `simplemde`.
+Put the `kirby-simplemde-master` folder into your `site/plugins` folder and rename it to `simplemde`.
 
 You can then replace your `textarea` fields with `simplemde` like that:
 
