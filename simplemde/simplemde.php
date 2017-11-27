@@ -1,55 +1,50 @@
-<?php 
+<?php
 
-  if(!function_exists('panel')) return;
-
-  $kirby->set('field', 'simplemde', __DIR__ . DS . 'simplemde');
+class SimplemdeField extends TextField {
   
-  function search() {
-    return site()->search(get("phrase"), array(
-    'minlength' => 1,
-    'fields' => array(
-      "title",
-      "uri"
-    )))->toArray();
+  static public $assets = array(
+    'js' => array(
+      'simplemde.min.js',
+      'jquery.easy-autocomplete.min.js',
+      'editor.js'
+    ),
+    'css' => array(
+      'simplemde.min.css',
+      'editor.css'
+    )
+  );
+    
+  public function input() {
+
+    $input = parent::input();
+    $input->tag('textarea');
+    $input->data('field', 'simplemde');
+    
+    $input->data('json', preg_split( '/(\/options|\/pages)/', purl($this->model) )[0] . "/plugins/simplemde" );
+    
+    $input->removeAttr('value');
+    $input->html($this->value() ? htmlentities($this->value(), ENT_NOQUOTES, 'UTF-8') : false);
+    
+    if (isset($this->buttons)) {
+      if ($this->buttons == false) {
+        $input->data('buttons', "no");
+      }
+      else {
+        $input->data('buttons', $this->buttons);
+      }
+    }
+
+    return $input;
+    
   }
-  
-  panel()->routes[] = array(
-    'pattern' => array(
-      '(:any)/simplemde/index.json',
-    ),
-    'action'  => function() {
-      $search = site()->search(get("phrase"), array(
-      'minlength' => 1,
-      'fields' => array(
-        "title",
-        "uri"
-      )))->toArray();
-      return json_encode($search, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-    },
-    'filter'  => 'auth',
-    'method'  => 'POST|GET'
-  );
-  
-  panel()->routes[] = array(
-    'pattern' => array(
-      '(:any)/simplemde/translation.json',
-    ),
-    'action'  => function() {
-      if (version_compare(panel()->version(), '2.2', '>=')) {
-          $lang = panel()->translation()->code();
-      } else {
-          $lang = panel()->language();
-      }
-      $langDir = __DIR__ . DS . "simplemde" . DS . 'languages' . DS;
-      if (file_exists($langDir . $lang . '.php')) {
-        $translation = include $langDir . $lang . '.php';
-      }
-      else { 
-        $translation = include $langDir . 'en.php';
-      }
-      
-      return json_encode($translation, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-    },
-    'filter'  => 'auth',
-    'method'  => 'POST|GET'
-  );
+
+  public function element() {
+    $element = parent::element();
+    $element->addClass('field-with-simplemde');
+    if (c::get('simplemde.kirbytagHighlighting', true)) {
+      $element->addClass('kirbytag-highlighting');
+    }
+    return $element;
+  }
+
+}
