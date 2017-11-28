@@ -66,13 +66,9 @@
     .field-with-simplemde .editor-toolbar .easy-autocomplete-container ul {
       list-style: none; }
       .field-with-simplemde .editor-toolbar .easy-autocomplete-container ul li {
-        height: 45px;
-        padding: 0 14px;
-        border-top: 1px solid #EFEFEF;
         background: white;
-        line-height: 45px;
         display: block;
-        overflow: hidden; }
+        line-height: 1; }
         .field-with-simplemde .editor-toolbar .easy-autocomplete-container ul li:hover, .field-with-simplemde .editor-toolbar .easy-autocomplete-container ul li.selected {
           cursor: pointer;
           background: #f7f7f7; }
@@ -81,8 +77,16 @@
           .field-with-simplemde .editor-toolbar .easy-autocomplete-container ul li.no-results:hover {
             background: white;
             cursor: auto; }
+        .field-with-simplemde .editor-toolbar .easy-autocomplete-container ul li .eac-item {
+          border-top: 1px solid #EFEFEF;
+          padding: 6px 14px; }
+        .field-with-simplemde .editor-toolbar .easy-autocomplete-container ul li .title {
+          display: block; }
         .field-with-simplemde .editor-toolbar .easy-autocomplete-container ul li .uri {
-          opacity: .5; }
+          display: block;
+          color: #777;
+          font-size: 12px;
+          padding-top: 4px; }
   .field-with-simplemde .editor-toolbar.pagelink-open .editor-toolbar-inner {
     overflow: visible; }
   .field-with-simplemde .editor-toolbar.pagelink-open a {

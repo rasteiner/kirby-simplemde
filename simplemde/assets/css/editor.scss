@@ -94,13 +94,9 @@
         ul {
           list-style: none;
           li {
-            height: 45px;
-            padding: 0 14px;
-            border-top: 1px solid #EFEFEF;
             background: white;
-            line-height: 45px;
             display: block;
-            overflow: hidden;
+            line-height: 1;
             &:hover, &.selected {
               cursor: pointer;
               background: #f7f7f7;
@@ -112,12 +108,19 @@
                 cursor: auto;
               }
             }
+            .eac-item {
+              border-top: 1px solid #EFEFEF;
+              padding: 6px 14px;
+            }
             
             .title {
-              
+              display: block;
             }
             .uri {
-              opacity: .5; 
+              display: block;
+              color: #777;
+              font-size: 12px;
+              padding-top: 4px;
             }
           }
         }
