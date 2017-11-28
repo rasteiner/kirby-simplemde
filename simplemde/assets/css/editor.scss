@@ -154,6 +154,10 @@
   .CodeMirror {
     border-radius: 0;
     border: none;
+    &, .CodeMirror-scroll {
+      min-height: 130px;
+    }
+    
     &.CodeMirror-over {
       border-color: black;
     }

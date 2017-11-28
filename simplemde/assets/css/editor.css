@@ -106,6 +106,8 @@
 .field-with-simplemde .CodeMirror {
   border-radius: 0;
   border: none; }
+  .field-with-simplemde .CodeMirror, .field-with-simplemde .CodeMirror .CodeMirror-scroll {
+    min-height: 130px; }
   .field-with-simplemde .CodeMirror.CodeMirror-over {
     border-color: black; }
   .field-with-simplemde .CodeMirror .cm-formatting {
