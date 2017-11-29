@@ -73,7 +73,11 @@
           cursor: pointer;
           background: #f7f7f7; }
         .field-with-simplemde .editor-toolbar .easy-autocomplete-container ul li.no-results {
-          color: #777; }
+          height: 45px;
+          line-height: 45px;
+          padding: 0px 14px;
+          color: #777;
+          border-top: 1px solid #EFEFEF; }
           .field-with-simplemde .editor-toolbar .easy-autocomplete-container ul li.no-results:hover {
             background: white;
             cursor: auto; }
