@@ -11,6 +11,7 @@ return [
   'button.unordered-list'  => 'Liste',
   'button.ordered-list'    => 'Nummerierte Liste',
   'button.quote'           => 'Zitat',
+  'button.code'            => 'Code',
   'button.horizontal-rule' => 'Trennlinie',
   'button.link'            => 'Link',
   'button.page'            => 'Seite',
