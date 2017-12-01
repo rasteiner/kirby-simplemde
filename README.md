@@ -48,6 +48,7 @@ There are also some more built-in buttons:
 
 - `h1`
 - `quote`
+- `code`
 - `horizontal-rule`
 
 You can define what buttons you want to use for any field:
