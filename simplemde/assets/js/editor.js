@@ -113,6 +113,12 @@
     			title: "{{button.quote}}",
     		},
     		{
+    			name: "code",
+    			action: SimpleMDE.toggleCodeBlock,
+    			className: "fa fa-code",
+    			title: "{{button.code}}",
+    		},
+    		{
     			name: "horizontal-rule",
     			action: SimpleMDE.drawHorizontalRule,
     			className: "fa fa-minus",
