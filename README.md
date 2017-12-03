@@ -65,7 +65,7 @@ text:
 
 ### Page link
 
-As of version 1.1.2 this field will automatically hide modules and modules container pages with the title `_modules` from the page list. To include the modules you can add this to your `config.php`:
+As of version 1.1.2 this field will automatically hide modules and modules container pages with the title `_modules` from the page list. To include them you can add this to your `config.php`:
 
 ```
 c::set('simplemde.excludeModules', false);
