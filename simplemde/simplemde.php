@@ -31,6 +31,8 @@ class SimplemdeField extends TextField {
       }
       else {
         $input->data('buttons', $this->buttons);
+      }  else if(is_array(c::get('simplemde.buttons', false))) {
+        $input->data('buttons', c::get('simplemde.buttons'));
       }
     }
 
