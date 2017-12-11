@@ -63,6 +63,17 @@ text:
     - link
 ```
 
+You can also globally define default buttons for any textarea on your site by setting the `simplemde.buttons` variable in your config.php.
+
+```php
+c::set('textarea.buttons', array(
+  "bold",
+  "italic",
+  "link",
+  "email"
+));
+```
+
 ### Page link
 
 As of version 1.1.2 this field will automatically hide modules and modules container pages with the title `_modules` from the page list. To include them you can add this to your `config.php`:
