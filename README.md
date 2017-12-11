@@ -66,7 +66,7 @@ text:
 You can also globally define default buttons for any textarea on your site by setting the `simplemde.buttons` variable in your config.php.
 
 ```php
-c::set('textarea.buttons', array(
+c::set('simplemde.buttons', array(
   "bold",
   "italic",
   "link",
